@@ -26,3 +26,32 @@ steps:
     commands:
       - yarn install
       - yarn lerna publish from-package
+
+---
+kind: secret
+name: GITHUB_PACKAGES_USERNAME
+get:
+  path: secret/data/infra_secrets/global_secrets
+  name: GITHUB_PACKAGES_USERNAME
+
+---
+kind: secret
+name: GITHUB_PACKAGES_PASSWORD
+get:
+  path: secret/data/infra_secrets/global_secrets
+  name: GITHUB_PACKAGES_PASSWORD
+
+---
+kind: secret
+name: GITHUB_PACKAGES_EMAIL
+get:
+  path: secret/data/infra_secrets/global_secrets
+  name: GITHUB_PACKAGES_EMAIL
+
+---
+kind: secret
+name: GITHUB_PACKAGES_REGISTRY
+get:
+  path: secret/data/infra_secrets/global_secrets
+  name: GITHUB_PACKAGES_REGISTRY
+
