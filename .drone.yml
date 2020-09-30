@@ -1,0 +1,28 @@
+kind: pipeline
+name: eslint-config-js
+type: kubernetes
+trigger:
+  branch:
+    - master
+  event:
+    include:
+      - push
+steps:
+  - name: github-packages-auth
+    image: robertstettner/drone-npm-auth
+    settings:
+      username:
+        from_secret: GITHUB_PACKAGES_USERNAME
+      password:
+        from_secret: GITHUB_PACKAGES_PASSWORD
+      email:
+        from_secret: GITHUB_PACKAGES_EMAIL
+      registry:
+        from_secret: GITHUB_PACKAGES_REGISTRY
+      scope: '@vase'
+
+  - name: install-dependencies
+    image: node:10-alpine
+    commands:
+      - yarn install
+      - yarn lerna publish from-package
