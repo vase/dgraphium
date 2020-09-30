@@ -1,5 +1,5 @@
 kind: pipeline
-name: eslint-config-js
+name: default
 type: kubernetes
 trigger:
   branch:
@@ -21,8 +21,8 @@ steps:
         from_secret: GITHUB_PACKAGES_REGISTRY
       scope: '@vase'
 
-  - name: install-dependencies
-    image: node:10-alpine
+  - name: publish
+    image: node:12-alpine
     commands:
       - yarn install
       - yarn lerna publish from-package
