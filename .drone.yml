@@ -23,9 +23,11 @@ steps:
 
   - name: publish
     image: node:12-alpine
+    environment:
+      npm_config_unsafe_perm: 'true'
     commands:
       - yarn install
-      - yarn lerna publish from-package --yes --unsafe-perm
+      - yarn lerna publish from-package --yes
 
 ---
 kind: secret
