@@ -1,7 +1,7 @@
 {
   "name": "@vase/dgraphium-client",
   "license": "MIT",
-  "version": "0.2.1",
+  "version": "0.2.1-patch.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
